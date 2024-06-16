@@ -1,0 +1,55 @@
+Struttura di una tabella social
+
+
+NOME COLONNA              TIPO                  ATTRIBUTI               INDICI  
+____________________
+//TABELLA UTENTE //
+
+
+id                        int                   AUTO_INCREMENT          primary key
+nome                      varchar(50)           unique not null
+cognome                   varchar(50)           unique not null
+password                  varchar(100)          unique not null
+data_di_nascita           date(50)              unique not null
+data_creazione            time(20)              not null  
+
+____________________
+//TABELLA POST //
+
+
+id                        int                   AUTO_INCREMENT          primary key
+id_utente                 int                   unique not null
+cntenuto                  varchar(5000)         not null                foreign key
+data_creazione            date(50)              not null
+data_cancelazione         date(50)              not null 
+
+____________________
+//TABELLA MEDIA //
+
+
+id                        int                   AUTO_INCREMENT          primary key
+id_utente                 int                   unique not null         foreign key
+id_post                   int                   unique not null         foreign key
+tipo_media                media                 unique not null
+data_publicazione         date(50)              not null
+data_cancelazione         date(50)              not null
+
+____________________
+//TABELLA TAG //
+
+
+id                        int                   AUTO_INCREMENT          primary key
+id_post                   int                   unique not null         foreign key
+id_utente                 int                   unique not null         foreign key
+data_publicazione         date(50)              not null
+data_cancelazione         date(50)              not null
+
+____________________
+//TABELLA LIKE //
+
+
+id                        int                   AUTO_INCREMENT          primary key
+id_post                   int                   unique not null         foreign key
+id_utente                 int                   unique not null         foreign key
+data_publicazione         date(50)              not null
+data_cancelazione         date(50)              not null
