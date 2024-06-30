@@ -1,0 +1,53 @@
+use db_milestone_3
+
+#Le query da sviluppare sono le seguenti:
+#Seleziona gli utenti che hanno postato almeno un video
+#Seleziona tutti i post senza Like (13)
+#Conta il numero di like per ogni post (165)
+#Ordina gli utenti per il numero di media caricati (25) 
+#Ordina gli utenti per totale di likes ricevuti nei loro posts (25) 
+
+#1-Seleziona gli utenti che hanno postato almeno un video
+
+select u.username	                    #SELECT specifica le righe della ricerca
+from users u	                        #FORM specifica la tabella della ricerca 
+join medias m on m.user_id = u.id	    #JOIN usa le tabelle comuni come punto comune per creare la tabella temporanea
+where m.`type` like 'video'	          #WHERE fitra le scelte della ricerca
+order by u.username asc;	            #ORDER ordina la ricerca in modo asc "ascendente" o DESC in  modo "discendente"
+
+
+#2-Seleziona tutti i post senza Like (13)
+
+select count(*) 
+from posts p
+left join likes l on l.post_id = p.id
+where l.post_id is null;
+
+
+#3-Conta il numero di like per ogni post (165)
+
+select l.post_id, p.user_id, count(p.id) 
+from posts p 
+join likes l on l.post_id = p.id
+group by p.id, p.user_id, l.post_id
+order by count(p.id) ;
+
+
+#4-Ordina gli utenti per il numero di media caricati (25)
+
+select u.id, u.username, count(u.id)  
+from users u
+join medias m on m.user_id = u.id
+group by u.id 
+order by count(u.id) asc;
+
+
+#5-Ordina gli utenti per totale di likes ricevuti nei loro posts (25)
+
+select count(*), u.id , u.username
+from users u 
+join posts p on p.user_id = u.id 
+join likes l on l.post_id = u.id 
+group by u.id
+order by count(l.post_id) asc ;
+

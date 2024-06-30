@@ -14,7 +14,9 @@ COMPOSIZIONE DELLE TABELLE
 -Ogni collona ha un nome: NOME, TIPO, ATRIBUTO, INDICE...
 
   -NOME è col quale viene riconoscita la collona
+
   -TIPO specifica il tipo della collona int(numero, floadt), varchrd(stringa, text ...), date(data, datatime, year ...), tinynt(booleano)
+  
   -ATRIBUTI dano una definizione di che del utilizo della collona come AUTO_INCREMENT, NOT NULL, NULL, UNIQUE, DEFAULT ...
 
     -AUTO_INCREMENT valoriza la collona numericamente ad ogni record(righa) in modo progresivo (+1), viene usato nel ID
@@ -22,12 +24,15 @@ COMPOSIZIONE DELLE TABELLE
     -NULL il tipo del record(righa)non è specificato
     -UNIQUE Il valore della collonadeve essere unico e no devono essere ripetiti nella collona
     -DEFAULT si puo dare un valore di DEFAULT se si ha un valore specifico da dare alla collona
-  -INDICE indica l'eventuale descrizione della collona come PRIMARY_KEY o FOREING_KEY 
-    -PRIMARY_KEY è la collona identificetiva e primaria che identifiaca la tabella, la PRIMARY_KEY puo essere piu di una sola collona
+  
+  -INDICE indica l'eventuale descrizione della collona come PRIMARY_KEY o FOREING_KEY
+    -PRIMARY_KEY è la collona identificetiva e primaria che identifiaca la tabella, 
+                 la PRIMARY_KEY puo essere piu di una sola collona
                  ed è consilgiato che numerico e che incremente ad ogni record(righa)
     -FOREING_KEY è la campi che identifiaca in una tabella che fa riferimento alla PRIMARY_KEY di un'altra tabella
 
 
-
 RELAZIONI TRA LE TABELLE
 
+-Le relazioni tra le tabelle chiamata CARDINALITA è la relazione tra tabelle di quante volte un campo di una tabella si trovanel'altra
+-La CARDINALITA sono di tre tipi ONE to ONE, ONE to MANY, MANY to MANY c'è la relazione tra una tabella INDIPENDENTE e una DIPENDENTE

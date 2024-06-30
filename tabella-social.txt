@@ -7,11 +7,12 @@ ____________________
 
 
 id                        int                   AUTO_INCREMENT          primary key
+account                   varchar(100)          unique not null
 nome                      varchar(50)           unique not null
 cognome                   varchar(50)           unique not null
 password                  varchar(100)          unique not null
 data_di_nascita           date(50)              unique not null
-data_creazione            time(20)              not null  
+data_creazione            date(20)              not null  
 
 ____________________
 //TABELLA POST //
